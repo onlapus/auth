@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <title>Auth Microservice show case</title>
+</head>
+<body>
+    <main>
+        <section id="main">
+            <div id="welcome_text">
+                <h1>Welcome to the Auth Microservice showcase!</h1>
+                <h2>Click the button below to try it out!</h2>
+            </div>
+
+            <button id="auth_btn" onclick="window.location.replace('register');">Authentificate</button>
+            <div></div>
+        </section>
+        <section id="about_project">
+            
+            <h2>About the Project</h2>
+            <div id="description">
+                The Auth Microservice is designed to accelerate application development by eliminating the need to build authentication logic from scratch. It delivers a secure, flexible, and production-ready solution that integrates seamlessly into a wide range of systems.
+            </div>
+        
+            <h3>Key Advantages</h3>
+            <ol id="advantages_list">
+                <li>
+                    <strong>Refresh–Access Token Workflow:</strong>
+                    <p>Implements a secure JWT-based authentication mechanism using access and refresh tokens, ensuring robust security and a smooth user experience.</p>
+                </li>
+                <li>
+                    <strong>High Customizability:</strong>
+                    <p>Easily tailor the service to your project’s needs through environment variables. For detailed configuration options, refer to the <code>README.md</code> or the <code>src/backend/app/core/config.py</code> file.</p>
+                </li>
+                <li>
+                    <strong>Flexible Architecture:</strong>
+                    <p>By default, the service uses PostgreSQL for user and session storage and Redis for email verification codes and refresh token rotation. Thanks to abstraction layers, you can implement your own Data Access Objects (DAOs) to support any database of your choice.</p>
+                </li>
+                <li>
+                    <strong>Hybrid Monolith–Microservice Design:</strong>
+                    <p>Designed to function both as an independent microservice and as an integrated module within a monolithic application, providing maximum architectural flexibility without added complexity.</p>
+                </li>
+            </ol>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>This frontend is for <strong>demonstration purposes</strong> only.</p>
+            <div class="footer-links">
+                <a href="https://exmple.com" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+                <span class="separator">|</span>
+                <span>Developer: <strong>Onlapus</strong></span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

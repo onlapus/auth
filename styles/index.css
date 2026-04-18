@@ -1,0 +1,229 @@
+:root {
+  /* Keeping your excellent variable palette */
+  --bg-primary: #0f172a;
+  --bg-secondary: #111c33;
+  --bg-tertiary: #1e293b;
+  --bg-hover: #24324a;
+  --bg-code: #262d38;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --accent-primary: #3b82f6;
+  --accent-hover: #2563eb;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --code-keyword: #9e8a65;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-tertiary) var(--bg-secondary);
+}
+
+/* Chromium / WebKit */
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 10px;
+}
+
+
+body {
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(circle at top center, rgba(59, 130, 246, 0.15), transparent 50%),
+    linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  margin: 0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* --- HERO SECTION --- */
+#main {
+  min-height: 90vh; /* Changed from 100vh to avoid awkward cutoffs */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 3rem;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 4.5rem); /* Responsive size */
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  color: var(--text-secondary);
+  font-weight: 400;
+  max-width: auto;
+}
+
+#auth_btn {
+  min-width: 40vw;
+  min-height: 15vh;
+  padding: 1.25rem 3rem;
+  font-size: 3rem;
+  font-weight: 600;
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  background: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa);
+  background-size: 200% auto;
+  transition: 0.3s all ease;
+  box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+}
+
+#auth_btn:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  transform: scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.4);
+}
+
+/* --- CONTENT SECTION --- */
+#about_project {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 4rem 3rem;
+  margin: 4rem 0;
+  box-shadow: var(--shadow-lg);
+}
+
+#about_project h2 {
+  color: white;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+#description {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  border-left: 4px solid var(--accent-primary);
+  padding-left: 1.5rem;
+}
+
+/* --- ADVANTAGES LIST --- */
+#advantages_list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+#advantages_list li {
+  background: var(--bg-tertiary);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s linear;
+}
+
+#advantages_list li:hover {
+  transform: scale(1.1);
+}
+
+#advantages_list strong {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--accent-primary);
+  margin-bottom: 0.5rem;
+}
+
+#advantages_list p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+code {
+  background: var(--bg-code);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  color: var(--code-keyword);
+  font-family: monospace;
+}
+
+/* --- FOOTER STYLING --- */
+footer {
+    width: 100%;
+    padding: 3rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid var(--border);
+    background: rgba(15, 23, 42, 0.8); /* Semi-transparent blur effect */
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+footer p {
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.footer-links {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.footer-links a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+.separator {
+    margin: 0 10px;
+    color: var(--text-tertiary);
+    opacity: 0.5;
+}
+
+footer strong {
+    color: var(--text-primary);
+}

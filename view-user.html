@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css"> 
+    <link rel="stylesheet" href="styles/auth.css"> 
+    <link rel="stylesheet" href="styles/view_user.css">
+    <link rel="stylesheet" href="styles/modals.css">
+    <title>Profile | Auth Showcase</title>
+</head>
+<body>
+    <header class="main-header">
+        <a href="./" class="logo-link">
+            <div class="header-logo">A</div>
+            <span class="header-title">Auth Microservice Showcase</span>
+        </a>
+    </header>
+
+    <main class="user-view-container">
+        <section class="profile-card">
+            <div class="profile-header">
+                <div class="fake-pfp">O</div>
+                <div class="username-display">
+                    <span class="info-label">Current User</span>
+                    <h1 id="user-username-title">onlapus</h1>
+                </div>
+                <button id="settings-btn" class="settings-btn" title="Settings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="user-info-grid">
+                <div class="info-item">
+                    <span class="info-label">Email Address</span>
+                    <span id="user-email-value" class="info-value">Loading...</span>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-label">Created At</span>
+                    <span id="user-created-value" class="info-value">Loading...</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">Account Status</span>
+                    <div>
+                        <span id="user-status-badge" class="badge">Checking...</span>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">Verification</span>
+                    <div>
+                        <span id="user-verified-badge" class="badge">Checking...</span>
+                    </div>
+                </div>
+
+                <button class="session-btn">
+                    View Active Sessions
+                </button>
+                <button id="logout-btn" style="grid-column: span 2; margin-top: 0.5rem; background: rgba(231, 76, 60, 0.1); border: 1px solid #e74c3c; color: #e74c3c; padding: 1rem; border-radius: 12px; cursor: pointer; font-weight: 600; transition: 0.3s;">
+                    Logout
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <div id="session-modal" class="modal">
+        <div class="modal-content profile-card">
+            <div class="modal-header">
+                <h2>Active Sessions</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div id="sessions-list" class="sessions-list">
+                <p class="loading-text">Loading sessions...</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="alert-modal" class="modal">
+        <div class="modal-content profile-card" style="max-width: 400px; text-align: center;">
+            <h3 id="alert-title" style="margin-top: 0;">Notification</h3>
+            <p id="alert-message" style="color: var(--text-secondary);"></p>
+            <button id="alert-ok" class="session-btn" style="margin-top: 1rem;">OK</button>
+        </div>
+    </div>
+
+    <div id="password-modal" class="modal">
+        <div class="modal-content profile-card" style="max-width: 450px;">
+            <h3 id="modal-title-dynamic">Confirm Action</h3>
+            <p id="modal-desc-dynamic" style="color: var(--text-secondary); font-size: 0.9rem;">Please enter your details to proceed.</p>
+            <div id="modal-inputs">
+                <input type="password" id="modal-password-input" class="session-btn" 
+                       style="background: var(--bg-tertiary); text-align: left; cursor: text; width: 100%; margin: 1rem 0; border: 1px solid var(--bg-hover);" 
+                       placeholder="Enter here...">
+                <input type="password" id="modal-password-confirm-input" class="session-btn" 
+                       style="background: var(--bg-tertiary); text-align: left; cursor: text; width: 100%; margin-bottom: 0.75rem; border: 1px solid var(--bg-hover); display: none;" 
+                       placeholder="Confirm new password">
+                <div id="modal-hint" class="modal-hint" style="display: none; font-size: 0.85rem; margin-bottom: 0.8rem;"></div>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+                <button id="password-cancel" class="session-btn" style="background: var(--bg-tertiary); flex: 1;">Cancel</button>
+                <button id="password-confirm" class="session-btn" style="flex: 1;">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="settings-modal" class="modal">
+        <div class="modal-content profile-card" style="max-width: 500px;">
+            <div class="modal-header">
+                <h2>Account Settings</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="settings-content">
+                <div class="settings-section">
+                    <h3 style="margin-bottom: 1rem; color: var(--text-primary);">Account Management</h3>
+                    <div class="settings-actions">
+                        <button id="update-email-btn" class="settings-action-btn">
+                            <div class="action-icon">📧</div>
+                            <div class="action-content">
+                                <div class="action-title">Update Email</div>
+                                <div class="action-desc">Change your email address and verify it</div>
+                            </div>
+                        </button>
+                        <button id="update-password-btn" class="settings-action-btn">
+                            <div class="action-icon">🔒</div>
+                            <div class="action-content">
+                                <div class="action-title">Update Password</div>
+                                <div class="action-desc">Change your account password</div>
+                            </div>
+                        </button>
+                        <button id="delete-account-btn" class="settings-action-btn delete-action-btn">
+                            <div class="action-icon">🗑️</div>
+                            <div class="action-content">
+                                <div class="action-title">Delete Account</div>
+                                <div class="action-desc">Permanently delete your account</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/auth_api.js"></script>
+    <script src="scripts/view_user.js"></script>
+</body>
+</html>

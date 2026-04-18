@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/auth.css">
+    <link rel="stylesheet" href="styles/modals.css">
+    <title>Confirm Account Deletion | Auth Microservice</title>
+</head>
+<body>
+    <div class="auth-container">
+        <section class="form-side">
+            <div class="form-header">
+                <h1 style="color: #ef4444;">⚠️ Confirm Deletion</h1>
+                <p style="color: #fca5a5;">This action cannot be undone. Your account will be permanently deleted.</p>
+            </div>
+
+            <form action="#" id="confirm-deletion-form">
+                <div class="input-group">
+                    <label for="deletion-password" style="color: #fca5a5;">Enter Password to Confirm</label>
+                    <input type="password" id="deletion-password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="delete-btn">Delete Account Permanently</button>
+            </form>
+
+            <div class="switch-auth">
+                <a href="view-user" style="color: var(--accent-primary); text-decoration: none;">← Cancel and return to account</a>
+            </div>
+        </section>
+
+        <section class="visual-side">
+            <div class="logo-container">
+                <div onclick="window.location.replace('./');" class="logo-placeholder">A</div>
+                <h2 style="margin-top: 20px; letter-spacing: 2px;">AUTH SERVICE</h2>
+            </div>
+        </section>
+    </div>
+
+    <div id="alert-modal" class="modal">
+        <div class="modal-content profile-card" style="max-width: 400px; text-align: center;">
+            <h3 id="alert-title" style="margin-top: 0;">Notification</h3>
+            <p id="alert-message" style="color: var(--text-secondary);"></p>
+            <button id="alert-ok" class="session-btn" style="margin-top: 1rem;">OK</button>
+        </div>
+    </div>
+
+    <script src="scripts/auth_api.js"></script>
+    <script src="scripts/confirm_deletion.js"></script>
+</body>
+</html>
