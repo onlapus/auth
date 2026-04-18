@@ -8,21 +8,20 @@
     <title>404 — Page Not Found | Auth Microservice</title>
 </head>
 <body>
-    <main class="not-found-container">
-        <section class="auth-container" style="max-width: 650px; margin: 6rem auto; padding: 2rem 1.5rem;">
-            <div class="form-header" style="text-align: center; padding-bottom: 1.5rem;">
+    <main class="not-found-container" style="display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem;">
+        <section class="auth-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: 650px; width: 100%; padding: 2rem 1.5rem;">
+            <div class="form-header" style="text-align: center; padding-bottom: 1.5rem; width: 100%;">
                 <div class="logo-placeholder" style="margin: 0 auto 1rem; cursor: default;">A</div>
                 <h1 style="font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 0.75rem;">404</h1>
                 <p style="font-size: 1rem; color: var(--text-secondary); max-width: 36rem; margin: 0 auto;">
                     The page you are looking for could not be found. It may have been moved, renamed, or never existed.
                 </p>
             </div>
-
-            <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+            <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center; margin-top: 2rem; width: 100%;">
                 <button class="submit-btn" style="width: 100%; max-width: 280px;" onclick="window.location.replace('./');">
                     Return to Auth Home
                 </button>
-                <a href="./" style="color: var(--accent-primary); text-decoration: none; font-size: 0.95rem;">
+                <a href="/" style="color: var(--accent-primary); text-decoration: none; font-size: 0.95rem;">
                     Go back to the main page
                 </a>
             </div>
