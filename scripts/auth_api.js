@@ -1,5 +1,5 @@
 // auth_api.js
-const API_BASE_URL = 'https://auth.onlapus.pp.ua;
+const API_BASE_URL = 'https://auth.onlapus.pp.ua';
 
 async function authFetch(endpoint, method = 'POST', payload = null) {
     const options = {
