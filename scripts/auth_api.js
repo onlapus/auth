@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = 'https://auth.onlapus.pp.ua';
 
 // 🔒 refresh mutex (CRITICAL FIX)
 let refreshPromise = null;
